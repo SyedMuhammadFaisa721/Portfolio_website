@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Syed Muhammad Faisal | Python Django Developer{% endblock %}</title>
+
+    <meta name="description"
+          content="Syed Muhammad Faisal - Python and Django Backend Developer Portfolio">
+
+    <meta name="keywords"
+          content="Python Developer, Django Developer, Backend Developer, Pakistan, Portfolio">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header>
+
+    <div class="container">
+
+        <nav>
+
+            <a href="#home" class="logo">
+
+                <div class="logo-box">
+                    SMF
+                </div>
+
+                <span>Faisal</span>
+
+            </a>
+
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="{% url 'home' %}">HOME</a>
+                <a href="#about">ABOUT</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="#skills">SKILLS</a>
+                <a href="#education">EDUCATION</a>
+                <a href="{% url 'contact' %}">CONTACT</a>
+
+            </div>
+
+
+            <a href="#contact" class="nav-button">
+                LET'S TALK →
+            </a>
+
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+<!-- =========================================================
+     SCROLL TOP BUTTON
+========================================================= -->
+
+<button id="topBtn">
+    ↑
+</button>
+{% block content %}
+{%  endblock%}
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            
+
+            <!--<div>
+                Built with passion and
+                <span class="footer-accent">
+                    Python
+                </span>
+            </div>
+
+            <div>
+                Karachi, Pakistan
+            </div>!-->
+
+        </div>
+
+        <center><div class="footer-social" aria-label="Social media links">
+            <a href="https://github.com/" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 .5C5.6.5.5 5.7.5 12.2c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.2-1.6-1.2-1.6-.9-.7.1-.7.1-.7 1 .1 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 3 .8.1-.7.4-1.1.7-1.3-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2A11.8 11.8 0 0 1 12 7.3c1 0 2.1.1 3.1.4 2.3-1.5 3.4-1.2 3.4-1.2.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.7-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.4.5 12 .5Z"/>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6.94 8.5A1.56 1.56 0 1 1 6.93 5.4a1.56 1.56 0 0 1 .01 3.1ZM5.5 9.8h2.8V18H5.5V9.8Zm4.7 0h2.7v1.1h.1c.4-.7 1.3-1.5 2.8-1.5 3 0 3.5 2 3.5 4.5V18h-2.8v-16c0-3.8-6.3-2.4-6.3 0v16H10.2V9.8Z"/>
+                </svg>
+            </a>
+            <a href="mailto:syedmuhammahfaisal@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5v-11Zm2.2.7 6.2 5 6.1-5H5.2Zm14.3 1.7-7.1 5.8a1 1 0 0 1-1.2 0L4.5 9v8.5c0 .3.2.5.5.5h13c.3 0 .5-.2.5-.5V9Z"/>
+                </svg>
+            </a>
+            <a href="https://twitter.com/" target="_blank" aria-label="X">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18.9 2h3.4l-7.4 8.5L22.8 22h-6.7l-5.2-7.4L5.3 22H1.9l7.9-9.1L1.2 2h6.9l4.7 6.7L18.9 2Zm-1.2 18h1.8L7.1 3.9H5.2L17.7 20Z"/>
+                </svg>
+            </a>
+            
+        </div></center>
+        <center><div style="color: white; margin-top: 20px;">
+                © 2026 All rights reserved.Build and develeoped by Syed Muhammad Faisal
+            </div></center>
+
+    </div>
+
+</footer>
+{% block page_scripts %}{% endblock %}
+<script src="{% static 'javascript/responsive.js' %}"></script>
+</body>
+
+</html>

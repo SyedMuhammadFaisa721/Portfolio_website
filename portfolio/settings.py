@@ -50,6 +50,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+LOGIN_URL = '/admin-login/'
+LOGIN_REDIRECT_URL = '/'
+
 ROOT_URLCONF = 'portfolio.urls'
 
 TEMPLATES = [

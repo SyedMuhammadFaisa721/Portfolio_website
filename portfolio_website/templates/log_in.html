@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Syed Muhammad Faisal</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --bg: #030708;
+
+            --card: rgba(10,18,21,.78);
+
+            --text: #f5f7f7;
+
+            --muted: #8e9a9e;
+
+            --cyan: #20d8c0;
+
+            --border:
+                rgba(255,255,255,.09);
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 25px;
+
+            background:
+
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(32,216,192,.08),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(32,216,192,.06),
+                    transparent 25%
+                ),
+
+                var(--bg);
+
+            color: var(--text);
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        .login-wrapper {
+
+            width: 100%;
+
+            max-width: 440px;
+
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 25px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+        }
+
+
+        .logo-box {
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: var(--cyan);
+
+            border:
+                1px solid var(--cyan);
+
+            border-radius: 4px;
+
+            font-size: 11px;
+
+        }
+
+
+        /* =========================================
+           CARD
+        ========================================= */
+
+        .card {
+
+            padding: 38px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 7px;
+
+            background:
+                var(--card);
+
+            backdrop-filter:
+                blur(20px);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,.4);
+
+        }
+
+
+        .heading {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .heading-small {
+
+            color: var(--cyan);
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .heading h1 {
+
+            font-size:
+                clamp(38px, 9vw, 52px);
+
+            line-height: 1;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .heading h1 span {
+
+            color: var(--cyan);
+
+        }
+
+
+        .heading p {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .form-group {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        label {
+
+            display: block;
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+            color: #d7ddde;
+
+            letter-spacing: .7px;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        label span {
+
+            color: var(--cyan);
+
+        }
+
+
+        .input-box {
+
+            position: relative;
+
+        }
+
+
+        .input-icon {
+
+            position: absolute;
+
+            left: 13px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color: #68757a;
+
+            display: flex;
+
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding:
+                14px 42px;
+
+            background: #050b0e;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 3px;
+
+            outline: none;
+
+            color: white;
+
+            font-size: 12px;
+
+            transition: .3s;
+
+        }
+
+
+        input::placeholder {
+
+            color: #5e6a6f;
+
+        }
+
+
+        input:focus {
+
+            border-color:
+                var(--cyan);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(32,216,192,.04);
+
+        }
+
+
+        .toggle {
+
+            position: absolute;
+
+            right: 13px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            border: none;
+
+            background: none;
+
+            color: #748084;
+
+            cursor: pointer;
+
+            display: flex;
+
+        }
+
+
+        .toggle:hover {
+
+            color: var(--cyan);
+
+        }
+
+
+        /* =========================================
+           OPTIONS
+        ========================================= */
+
+        .options {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin:
+                5px 0 20px;
+
+        }
+
+
+        .remember {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+        }
+
+
+        .remember input {
+
+            width: auto;
+
+            accent-color:
+                var(--cyan);
+
+        }
+
+
+        .forgot {
+
+            color: var(--cyan);
+
+            font-size: 10px;
+
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .login-btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: var(--cyan);
+
+            color: #00100d;
+
+            border:
+                1px solid var(--cyan);
+
+            border-radius: 10px;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+        }
+
+
+        .login-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(32,216,192,.15);
+
+        }
+
+
+        /* =========================================
+           DIVIDER
+        ========================================= */
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin: 24px 0;
+
+            color: #5e696d;
+
+            font-size: 9px;
+
+        }
+
+
+        .divider::before,
+        .divider::after {
+
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background:
+                var(--border);
+
+        }
+
+
+        /* =========================================
+           SOCIAL LOGIN
+        ========================================= */
+
+        .social-login {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 10px;
+
+        }
+
+
+        .social-login a {
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 12px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                #050b0e;
+
+            border-radius: 3px;
+
+            color: #d5dbdc;
+
+            font-size: 10px;
+
+            transition: .3s;
+
+        }
+
+
+        .social-login a:hover {
+
+            color: var(--cyan);
+
+            border-color:
+                var(--cyan);
+
+        }
+
+
+        /* =========================================
+           REGISTER
+        ========================================= */
+
+        .register {
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            margin-top: 23px;
+
+        }
+
+
+        .register a {
+
+            color: var(--cyan);
+
+            font-weight: bold;
+
+        }
+
+
+        .back {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #697579;
+
+            font-size: 10px;
+
+            transition: .3s;
+
+        }
+
+
+        .back:hover {
+
+            color: var(--cyan);
+
+        }
+
+
+        .copyright {
+
+            text-align: center;
+
+            color: #4f5a5e;
+
+            font-size: 9px;
+
+            margin-top: 20px;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 500px) {
+
+            body {
+
+                padding: 15px;
+
+            }
+
+
+            .card {
+
+                padding:
+                    28px 20px;
+
+            }
+
+
+            .social-login {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 350px) {
+
+            .options {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 10px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-wrapper">
+
+
+    <!-- LOGO -->
+
+    <a href="index.html"
+       class="logo">
+
+        <div class="logo-box">
+            SMF
+        </div>
+
+        <div class="logo-text">
+            Syed Muhammad Faisal
+
+    </a>
+
+
+
+    <!-- CARD -->
+
+    <div class="card">
+
+
+        <div class="heading">
+
+            <div class="heading-small">
+                WELCOME BACK
+            </div>
+
+            <h1>
+                SIGN <span>IN.</span>
+            </h1>
+
+            <p>
+                Login to access your account.
+            </p>
+
+        </div>
+
+
+
+        <form method="POST"
+        id="loginForm"
+        
+        >
+        {% csrf_token %}
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group" >
+
+                <label>
+                    <strong>USER NAME</strong>
+                
+                    <span>*</span>
+                </label>
+
+                <div class="input-box" >
+
+
+                    <div class="input-icon">
+
+                        <svg width="17"
+                             height="17"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.6">
+
+                            <rect x="3"
+                                  y="5"
+                                  width="18"
+                                  height="14"
+                                  rx="2"/>
+
+                            <path d="m3 7 9 6 9-6"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    {{ form.username }}
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group" >
+
+                <label >
+                    PASSWORD
+                    <span>*</span>
+                </label>
+
+                <div class="input-box">
+
+
+                    <div class="input-icon">
+
+                        <svg width="17"
+                             height="17"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.6">
+
+                            <rect x="4"
+                                  y="10"
+                                  width="16"
+                                  height="11"
+                                  rx="2"/>
+
+                            <path d="M8 10V7
+                            a4 4 0 0 1 8 0v3"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    {{ form.password}}
+
+
+                    <button
+                        type="button"
+                        class="toggle"
+                        id="togglePassword">
+
+
+                        <svg width="18"
+                             height="18"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.6">
+
+                            <path d="M2 12s3.5-7 10-7
+                            10 7 10 7-3.5 7-10 7
+                            S2 12 2 12z"/>
+
+                            <circle cx="12"
+                                    cy="12"
+                                    r="3"/>
+
+                        </svg>
+
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OPTIONS -->
+
+            <div class="options">
+
+
+                <label class="remember">
+
+                    <input
+                        type="checkbox"
+                        name="remember"
+                    >
+
+                    Remember me
+
+                </label>
+
+
+                <a href="#"
+                   class="forgot">
+
+                    Forgot password?
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- LOGIN -->
+
+            <button
+                type="submit"
+                class="login-btn">
+
+                LOGIN →
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- DIVIDER -->
+
+        <div class="divider">
+
+            OR CONTINUE WITH
+
+        </div>
+
+
+
+        <!-- SOCIAL -->
+
+        <div class="social-login">
+
+
+            <!-- GitHub -->
+
+            <a href="#">
+
+                <svg width="16"
+                     height="16"
+                     viewBox="0 0 24 24"
+                     fill="currentColor">
+
+                    <path d="M12 2C6.48 2 2 6.48
+                    2 12c0 4.42 2.87 8.17
+                    6.84 9.49.5.09.68-.22
+                    .68-.48 0-.24-.01-.87
+                    -.01-1.7-2.78.6-3.37-1.34
+                    -3.37-1.34-.45-1.16-1.11
+                    -1.47-1.11-1.47-.91-.62
+                    .07-.61.07-.61 1 .07
+                    1.53 1.03 1.53 1.03
+                    .89 1.52 2.34 1.08
+                    2.91.83.09-.65.35
+                    -1.08.63-1.33-2.22
+                    -.25-4.55-1.11-4.55
+                    -4.94 0-1.09.39-1.98
+                    1.03-2.68-.1-.25-.45
+                    -1.27.1-2.65 0 0
+                    .84-.27 2.75 1.02
+                    A9.56 9.56 0 0 1
+                    12 6.84c.85 0 1.71
+                    .11 2.51.32 1.91-1.75
+                    2.75-1.02 2.75-1.02
+                    .55 1.38.2 2.4.1
+                    2.65.64.7 1.03
+                    1.59 1.03 2.68
+                    0 3.84-2.34 4.68
+                    -4.57 4.93.36.31
+                    .69.92.69 1.85
+                    0 1.33-.01 2.4
+                    -.01 2.72 0 .26.18
+                    .57.69.47A10.01
+                    10.01 0 0 0 22 12
+                    c0-5.52-4.48-10-10-10z"/>
+
+                </svg>
+
+                GitHub
+
+            </a>
+
+
+
+            <!-- Google -->
+
+            <a href="#">
+
+                <svg width="16"
+                     height="16"
+                     viewBox="0 0 24 24"
+                     fill="none">
+
+                    <path
+                        fill="#4285F4"
+                        d="M23.49 12.27
+                        c0-.79-.07-1.55-.2-2.27H12v4.3
+                        h6.45a5.5 5.5 0 0 1-2.4
+                        3.61v3h3.88c2.27-2.09
+                        3.56-5.17 3.56-8.64z"/>
+
+                    <path
+                        fill="#34A853"
+                        d="M12 24c3.24 0
+                        5.95-1.07 7.93-2.9l-3.88-3
+                        c-1.07.72-2.44 1.15-4.05
+                        1.15-3.12 0-5.76-2.11
+                        -6.71-4.95H1.28v3.09
+                        A12 12 0 0 0 12 24z"/>
+
+                    <path
+                        fill="#FBBC05"
+                        d="M5.29 14.3A7.2
+                        7.2 0 0 1 4.91 12c0-.8
+                        .14-1.58.38-2.3V6.61
+                        H1.28A12 12 0 0 0 0
+                        12c0 1.93.46 3.75
+                        1.28 5.39l4.01-3.09z"/>
+
+                    <path
+                        fill="#EA4335"
+                        d="M12 4.75c1.76 0
+                        3.34.61 4.59 1.8l3.44-3.44
+                        C17.94 1.11 15.23 0
+                        12 0A12 12 0 0 0 1.28
+                        6.61l4.01 3.09C6.24
+                        6.86 8.88 4.75 12 4.75z"/>
+
+                </svg>
+
+                Google
+
+            </a>
+
+
+        </div>
+    <!-- BACK -->
+
+    <a href="index.html"
+       class="back">
+
+        ← Back to Portfolio
+
+    </a>
+
+
+    <div class="copyright">
+
+        © 2026 Syed Muhammad Faisal. All rights reserved.
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+    /* =========================================
+       SHOW / HIDE PASSWORD
+    ========================================= */
+
+    const password =
+        document.getElementById("{{ form.password.id_for_label }}");
+
+    const toggle =
+        document.getElementById("togglePassword");
+
+
+    toggle.addEventListener(
+        "click",
+        function () {
+
+            if (
+                password.type === "password"
+            ) {
+
+                password.type = "text";
+
+            } else {
+
+                password.type = "password";
+
+            }
+
+        }
+    );
+
+
+
+    /* =========================================
+       DEMO LOGIN
+    ========================================= */
+
+    /*const form =
+        document.getElementById("loginForm");
+
+
+    form.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            alert(
+                "Login form is ready. " +
+                "We will connect it with Django Authentication."
+            );
+
+        }
+    );*/
+</script>
+</body>
+</html>

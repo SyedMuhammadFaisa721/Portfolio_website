@@ -167,78 +167,27 @@
 
 
         <div class="services">
+            {% for skill in skills %}
 
 
             <div class="service">
+                
 
                 <div class="service-icon">
-                    &lt;/&gt;
+                    {{ skill.skill_logo }}
                 </div>
 
                 <h3>
-                    Backend Development
+                    {{ skill.skill_name }}
                 </h3>
 
                 <p>
-                    Building secure and scalable backend systems
-                    using Python and Django.
+                    {{ skill.skill_description }}
                 </p>
+                
 
             </div>
-
-
-            <div class="service">
-
-                <div class="service-icon">
-                    WEB
-                </div>
-
-                <h3>
-                    Web Applications
-                </h3>
-
-                <p>
-                    Creating responsive and modern web applications
-                    with clean architecture.
-                </p>
-
-            </div>
-
-
-            <div class="service">
-
-                <div class="service-icon">
-                    DB
-                </div>
-
-                <h3>
-                    Database Design
-                </h3>
-
-                <p>
-                    Designing efficient database structures and
-                    relationships for real-world applications.
-                </p>
-
-            </div>
-
-
-            <div class="service">
-
-                <div class="service-icon">
-                    API
-                </div>
-
-                <h3>
-                    REST APIs
-                </h3>
-
-                <p>
-                    Developing clean, secure and well-documented
-                    RESTful APIs.
-                </p>
-
-            </div>
+            {% endfor %}
 
 
         </div>
@@ -568,6 +517,7 @@
 
 
         <div class="projects">
+            {% for project in projects %}
 
 
             <!-- PROJECT 01 -->
@@ -575,121 +525,27 @@
             <div class="project">
 
                 <div class="project-number">
-                    01
+                    {{ forloop.counter| stringformat:"02d" }}
                 </div>
 
                 <h3>
-                    Student Management System
+                    {{ project.project_name }}
                 </h3>
 
                 <div class="project-stack">
-                    Django · MySQL · HTML · CSS
+                    {{ project.project_language }}
                 </div>
 
                 <p>
-                    A complete student management platform for
-                    managing students, departments, courses and
-                    academic records with authentication,
-                    permissions and CRUD functionality.
+                    {{ project.project_description }}
                 </p>
 
-                <a href="#" class="project-link">
+                <a href="{% url 'project_detail' 'student-management-system' %}" class="project-link">
                     VIEW PROJECT →
                 </a>
 
             </div>
-
-
-
-            <!-- PROJECT 02 -->
-
-            <div class="project">
-
-                <div class="project-number">
-                    02
-                </div>
-
-                <h3>
-                    Invoice Management System
-                </h3>
-
-                <div class="project-stack">
-                    Django · MySQL · Bootstrap
-                </div>
-
-                <p>
-                    A business-oriented invoice management system
-                    designed to create, manage and organize
-                    customer invoices and billing records.
-                </p>
-
-                <a href="#" class="project-link">
-                    VIEW PROJECT →
-                </a>
-
-            </div>
-
-
-
-            <!-- PROJECT 03 -->
-
-            <div class="project">
-
-                <div class="project-number">
-                    03
-                </div>
-
-                <h3>
-                    Hospital Management System
-                </h3>
-
-                <div class="project-stack">
-                    Django · Python · MySQL
-                </div>
-
-                <p>
-                    A healthcare management platform for handling
-                    patients, doctors, appointments and medical
-                    records through a structured backend system.
-                </p>
-
-                <a href="#" class="project-link">
-                    VIEW PROJECT →
-                </a>
-
-            </div>
-
-
-
-            <!-- PROJECT 04 -->
-
-            <div class="project">
-
-                <div class="project-number">
-                    04
-                </div>
-
-                <h3>
-                    AI Interior Design System
-                </h3>
-
-                <div class="project-stack">
-                    Python · AI · Django
-                </div>
-
-                <p>
-                    An AI-powered application concept that analyzes
-                    rooms and helps generate interior design ideas
-                    using intelligent processing.
-                </p>
-
-                <a href="#" class="project-link">
-                    VIEW PROJECT →
-                </a>
-
-            </div>
-
-
+            {% endfor %}
         </div>
 
     </div>
@@ -720,78 +576,27 @@
 
 
         <div class="timeline">
-
-
+            {% for experience in experiences %}
             <div class="timeline-item">
 
                 <div class="timeline-year">
-                    2026 — PRESENT
+                    {{ experience.experience_duration }}
                 </div>
 
                 <h3>
-                    Django Backend Developer
+                    {{ experience.experience_title }}
                 </h3>
 
                 <div class="timeline-company">
-                    Personal Projects / Development
+                    {{ experience.experience_company }}
                 </div>
 
                 <p>
-                    Building production-style Django applications,
-                    working with authentication, permissions,
-                    class-based views, ORM, CRUD systems and
-                    backend architecture.
+                    {{ experience.experience_description }}
                 </p>
 
             </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2025 — 2026
-                </div>
-
-                <h3>
-                    Python Developer
-                </h3>
-
-                <div class="timeline-company">
-                    Projects & Software Engineering
-                </div>
-
-                <p>
-                    Developed Python applications and worked with
-                    object-oriented programming, automation,
-                    APIs and problem solving.
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2023 — PRESENT
-                </div>
-
-                <h3>
-                    BS Software Engineering
-                </h3>
-
-                <div class="timeline-company">
-                    Sir Syed University of Engineering & Technology
-                </div>
-
-                <p>
-                    Studying software engineering with a focus on
-                    programming, databases, web technologies,
-                    algorithms and software development.
-                </p>
-
-            </div>
-
-
+            {% endfor %}
         </div>
 
     </div>

@@ -1,4 +1,7 @@
-document.querySelector('.contact-form form')?.addEventListener('submit', function (event) {
-    event.preventDefault();
-    alert('Message form is ready! Connect it with Django backend to receive messages.');
+document.querySelectorAll('.form-message').forEach((message) => {
+    window.setTimeout(() => {
+        message.classList.add('is-hiding');
+
+        window.setTimeout(() => message.remove(), 350);
+    }, 4000);
 });

@@ -9,7 +9,8 @@ class skill(models.Model):
         return self.skill_name
 
 class projects(models.Model):
-    project_name = models.CharField(max_length = 200 , primary_key = True)
+    project_serial_number = models.IntegerField(primary_key = True )
+    project_name = models.CharField(max_length = 200)
     project_description = models.TextField()
     project_language = models.CharField(max_length = 300)
 
@@ -18,7 +19,7 @@ class projects(models.Model):
 
 class contact(models.Model):
     contact_name = models.CharField(max_length = 200)
-    contact_email = models.EmailField(primary_key = True)
+    contact_email = models.EmailField()
     contact_subject = models.CharField(max_length = 200)
     project_type = models.CharField(max_length = 400)
     contact_message = models.TextField()

@@ -11,11 +11,21 @@ class skill(models.Model):
 class projects(models.Model):
     project_serial_number = models.IntegerField(primary_key = True )
     project_name = models.CharField(max_length = 200)
-    project_description = models.TextField()
+    project_description = models.CharField(max_length=500)
     project_language = models.CharField(max_length = 300)
+    project_long_description = models.TextField()
 
     def __str__(self):
         return self.project_name
+class projectimage(models.Model):
+    project= models.ForeignKey(
+        projects,
+        on_delete=models.CASCADE,
+        related_name='image'
+    )
+    project_image= models.ImageField(upload_to='projects/projects_image')
+    def __str__(self):
+        return f'{self.project.project_name} - {self.project_image.name}'
 
 class contact(models.Model):
     contact_name = models.CharField(max_length = 200)

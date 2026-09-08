@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ project.title }} | Syed Muhammad Faisal{% endblock %}
+{% block title %}{{ projects.title }}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/project_detail.css' %}">
@@ -14,6 +14,8 @@
             <a class="back-link" href="{% url 'home' %}#projects">&larr; BACK TO PROJECTS</a>
             <div class="project-hero-grid">
                 <div>
+                    {% for project in projects %}
+
                     <div class="project-eyebrow">{{ project.number }} &mdash; FEATURED PROJECT</div>
                     <h1>{{ project.title }}</h1>
                     <p class="project-tagline">{{ project.tagline }}</p>

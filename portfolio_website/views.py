@@ -46,7 +46,7 @@ def home_view(request ):
     return render(request , "home.html" , context)
 
 def tester(request):
-    return render(request , 'delete.html')
+    return render(request , 'tester.html')
 
 
 def download_cv(request):

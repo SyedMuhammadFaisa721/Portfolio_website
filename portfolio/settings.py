@@ -55,6 +55,8 @@ LOGIN_URL = '/admin-login/'
 LOGIN_REDIRECT_URL = '/'
 
 ROOT_URLCONF = 'portfolio.urls'
+MEDIA_URL= '/media/'
+MEDIA_ROOT = BASE_DIR 
 
 TEMPLATES = [
     {

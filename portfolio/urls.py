@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from portfolio_website.views import home_view , contact_view , log_in , tester , ProjectDetailView
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,3 +29,5 @@ urlpatterns = [
     path('', home_view, name='home'),
     path('home/project_details/<int:pk>', ProjectDetailView.as_view() , name='projectdetails')
 ]
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)

@@ -473,7 +473,7 @@
         ========================================================= */
 
         section {
-            padding: 95px 0;
+            padding: 60px 0;
 
             border-top: 1px solid rgba(255,255,255,0.06);
         }
@@ -1151,7 +1151,7 @@
             }
 
             section {
-                padding: 70px 0;
+                padding: 50px 0;
             }
 
             .services {
@@ -1233,4 +1233,595 @@
         @media (max-width: 850px) { .replacement-hero { min-height: auto; display: block; padding: 65px 7% 0; } .replacement-hero-content { width: 100%; text-align: center; } .replacement-hero-content > p { margin: 0 auto 30px; } .replacement-buttons { justify-content: center; } .replacement-visual { position: relative; width: 100%; height: 700px; margin-top: 30px; } .replacement-profile { height: 480px; right: 50%; bottom: 205px; transform: translateX(50%); } .replacement-rings { width: 490px; height: 490px; right: 50%; transform: translateX(50%); top: 25px; } .replacement-visual::before { right: 50%; transform: translateX(50%); } .replacement-card { display: none; } }
         @media (max-width: 550px) { .replacement-hero { padding: 55px 6% 0; } .replacement-hero h1 { font-size: 47px; letter-spacing: -1px; } .replacement-badge { font-size: 17px; padding: 10px 13px; } .replacement-hero-content > p { font-size: 15px; } .replacement-buttons { flex-direction: column; gap: 13px; } .replacement-primary, .replacement-secondary { width: 100%; } .replacement-visual { height: 650px; } .replacement-profile { height: 430px; bottom: 190px; } .replacement-rings { width: 390px; height: 390px; } .replacement-card { width: 175px; padding: 16px; top: 270px; bottom: auto; } .replacement-card div { font-size: 13px; margin-bottom: 13px; } .replacement-grid { display: none; } }
 
-    
+    /* =========================================================
+   STATS SECTION
+========================================================= */
+
+.stats-section {
+    padding: 20px 0 25px;
+    border-top: none;
+}
+
+
+.stats-box {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(4, 16, 25, 0.96),
+            rgba(3, 13, 21, 0.92)
+        );
+
+    border: 1px solid rgba(20, 139, 210, 0.25);
+
+    border-radius: 14px;
+
+    padding: 20px 0;
+
+    box-shadow:
+        0 0 25px rgba(0, 80, 160, 0.08),
+        inset 0 0 30px rgba(0, 80, 160, 0.03);
+}
+
+
+.stat-item {
+    min-height: 75px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 25px;
+
+    border-right: 1px solid rgba(24, 128, 190, 0.25);
+
+    position: relative;
+}
+
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b1b30,
+            #081426
+        );
+
+    border: 1px solid rgba(55, 148, 225, 0.20);
+
+    color: #55cfff;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 0 18px rgba(0, 150, 255, 0.08);
+}
+
+
+.stat-icon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    background: #20d8c0;
+
+    border-radius: 50%;
+
+    transform: translate(17px, -18px);
+
+    box-shadow: 0 0 8px #20d8c0;
+}
+
+
+.stat-content h3 {
+    margin: 0;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    color: #f5f8fa;
+
+    font-weight: 700;
+}
+
+
+.stat-content p {
+    margin: 7px 0 0;
+
+    font-size: 11px;
+
+    color: #b2c0c7;
+
+    white-space: nowrap;
+}
+
+
+
+/* =========================================================
+   TECHNOLOGY SECTION
+========================================================= */
+
+.technology-section {
+    padding: 10px 0 55px;
+
+    border-top: none;
+
+    overflow: hidden;
+}
+
+
+.technology-heading {
+    margin-bottom: 17px;
+
+    color: #f0f5f7;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.technology-heading span {
+    position: relative;
+
+    padding-left: 12px;
+}
+
+
+.technology-heading span::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    width: 3px;
+    height: 15px;
+
+    transform: translateY(-50%);
+
+    background: var(--accent);
+
+    border-radius: 4px;
+
+    box-shadow: 0 0 10px rgba(32, 216, 192, 0.7);
+}
+
+
+
+/* =========================================================
+   TECH SLIDER
+========================================================= */
+
+/* =========================================================
+   TECHNOLOGY SECTION (FULL WIDTH)
+========================================================= */
+
+.technology-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+
+    padding: 10px 0 55px;
+    overflow: hidden;
+    border-top: none;
+}
+
+.technology-heading {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 22px;
+    padding: 0 20px;
+
+    color: #f0f5f7;
+    font-size: 13px;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+.technology-heading span {
+    position: relative;
+    padding-left: 12px;
+}
+
+.technology-heading span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 3px;
+    height: 15px;
+    transform: translateY(-50%);
+    background: var(--accent, #16d8cc);
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(32, 216, 192, 0.7);
+}
+
+/* =========================================================
+   TECH SLIDER (INFINITE SCROLL)
+========================================================= */
+
+.tech-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.tech-slider::before,
+.tech-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.tech-slider::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg, #070d14), transparent);
+}
+
+.tech-slider::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg, #070d14), transparent);
+}
+
+.tech-track {
+    display: flex;
+    width: max-content;
+    gap: 24px;
+    animation: techSlide 25s linear infinite;
+}
+
+.tech-slider:hover .tech-track {
+    animation-play-state: paused;
+}
+
+/* Animation Keyframes */
+@keyframes techSlide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* =========================================================
+   TECH ITEM & CARDS
+========================================================= */
+
+.tech-item {
+    width: 90px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tech-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #091b2e, #071322);
+    border: 1px solid rgba(65, 143, 213, 0.18);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.tech-icon::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    right: 6px;
+    top: 6px;
+    background: #16d8cc;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #16d8cc;
+}
+
+.tech-item:hover .tech-icon {
+    transform: translateY(-5px);
+    border-color: rgba(32, 216, 192, 0.5);
+    box-shadow: 0 10px 30px rgba(32, 216, 192, 0.15);
+}
+
+.tech-item h4 {
+    margin: 0;
+    font-size: 12px;
+    color: #dce5e8;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* =========================================================
+   THEME MATCHED STATS BAR
+========================================================= */
+
+.stats-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto 50px;
+    padding: 0 20px;
+}
+
+.stats-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(145deg, #091b2e, #071322);
+    border: 1px solid rgba(65, 143, 213, 0.18);
+    border-radius: 18px;
+    padding: 24px 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    justify-content: center;
+}
+
+.stat-icon-box {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.stat-icon-box::after {
+    display: none; /* Removed corner dot from stats icon for cleaner look */
+}
+
+.stat-info h3 {
+    color: #f0f5f7;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+}
+
+.stat-info p {
+    color: #9da8a3;
+    font-size: 12px;
+    margin: 5px 0 0 0;
+    white-space: nowrap;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 38px;
+    background: rgba(65, 143, 213, 0.18);
+}
+
+/* =========================================================
+   RESPONSIVE MEDIA QUERIES
+========================================================= */
+
+@media (max-width: 992px) {
+    .stats-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+        padding: 20px;
+    }
+
+    .stat-divider {
+        display: none;
+    }
+
+    .stat-item {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+
+
+
+
+
+
+ /*=========================================================
+   SLIDER ANIMATION
+========================================================= */
+
+@keyframes techSlide {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(
+            calc(-50% - 8px)
+        );
+    }
+
+}
+
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .stats-box {
+        grid-template-columns: repeat(2, 1fr);
+
+        padding: 10px 0;
+    }
+
+
+    .stat-item {
+
+        min-height: 80px;
+
+        padding: 15px 20px;
+    }
+
+
+    .stat-item:nth-child(2) {
+        border-right: none;
+    }
+
+
+    .stat-item:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(24, 128, 190, 0.25);
+    }
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .stats-section {
+        padding: 25px 0 20px;
+    }
+
+
+    .stats-box {
+
+        grid-template-columns: 1fr;
+
+        padding: 8px 0;
+
+        border-radius: 12px;
+    }
+
+
+    .stat-item {
+
+        min-height: 70px;
+
+        padding: 12px 18px;
+
+        border-right: none;
+
+        border-bottom: 1px solid rgba(24, 128, 190, 0.20);
+    }
+
+
+    .stat-item:last-child {
+        border-bottom: none;
+    }
+
+
+    .stat-icon {
+
+        width: 44px;
+        height: 44px;
+
+        border-radius: 12px;
+
+        font-size: 18px;
+    }
+
+
+    .stat-content h3 {
+        font-size: 22px;
+    }
+
+
+    .stat-content p {
+        font-size: 10px;
+    }
+
+
+    .technology-section {
+        padding-top: 5px;
+        padding-bottom: 40px;
+    }
+
+
+    .technology-heading {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+
+    .tech-track {
+        gap: 12px;
+
+        animation-duration: 22s;
+    }
+
+
+    .tech-item {
+        width: 82px;
+    }
+
+
+    .tech-icon {
+
+        width: 58px;
+        height: 58px;
+
+        border-radius: 14px;
+    }
+
+
+    .tech-item h4 {
+        font-size: 10px;
+    }
+
+
+    .tech-slider::before,
+    .tech-slider::after {
+        width: 35px;
+    }
+
+}

@@ -29,7 +29,7 @@
 
         <nav>
 
-            <a href="#home" class="logo">
+            <a href="{% url 'home' %}" class="logo">
 
                 <div class="logo-box">
                     SMF
@@ -43,10 +43,10 @@
             <div class="nav-links" id="navLinks">
 
                 <a href="{% url 'home' %}">HOME</a>
-                <a href="#about">ABOUT</a>
-                <a href="#projects">PROJECTS</a>
-                <a href="#skills">SKILLS</a>
-                <a href="#education">EDUCATION</a>
+                <a href="{% url 'home' %}#about">ABOUT</a>
+                <a href="{% url 'home' %}#projects">PROJECTS</a>
+                <a href="{% url 'home' %}#skills">SKILLS</a>
+                <a href="{% url 'home' %}#education">EDUCATION</a>
                 <a href="{% url 'contact' %}">CONTACT</a>
 
             </div>

@@ -36,7 +36,7 @@ def contact_view(request):
         'form':form
     }
     return render(request , 'contact.html' , data)
-def home_view(request):
+def home_view(request ):
     context={
         "skills": skill.objects.all(),
         'projects': projects.objects.all(),
@@ -46,7 +46,8 @@ def home_view(request):
     return render(request , "home.html" , context)
 
 def tester(request):
-    return render(request , 'project_detail.html')
+    return render(request , 'delete.html')
+
 
 def download_cv(request):
     file_path = finders.find('cv/Syed_Muhammad_Faisal_Resume_WithPhoto.pdf')
@@ -57,7 +58,7 @@ def download_cv(request):
     )
 class ProjectDetailView(DetailView):
     model = projects
-    template_name = 'project_detaile.html'
+    template_name = 'tester.html'
     context_object_name = 'projectdetails'
 
 

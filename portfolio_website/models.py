@@ -14,6 +14,10 @@ class projects(models.Model):
     project_description = models.CharField(max_length=500)
     project_language = models.CharField(max_length = 300)
     project_long_description = models.TextField()
+    project_type = models.CharField(max_length=100 , default="default")
+    project_focus = models.CharField(max_length=100 , default="default")
+    project_status = models.CharField(max_length=100 , default="default")
+    project_github_url = models.URLField(blank=True , null=True)
 
     def __str__(self):
         return self.project_name

@@ -14,7 +14,7 @@ class Ipaddressblocker:
             if user_ip not in allowed_ip:
                 blockvisitor.objects.create(
                     visitor_ip = user_ip,
-                    paths       = request.path
+                    path       = request.path
                 )
                 return HttpResponseForbidden(
                     "Access Denied"

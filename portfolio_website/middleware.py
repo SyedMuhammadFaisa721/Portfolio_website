@@ -6,15 +6,15 @@ class Ipaddressblocker:
         self.get_response = get_response
     def __call__(self, request):
         allowed_ip= ["192.168.100.68"]
-        paths      = ["admin-login/" , "admin/" , "dashboard/"]
+        paths      = ["/admin-login/" , "/admin/" , "/dashboard/"]
 
-        if request.path == paths:
+        if request.path in paths:
             user_ip = request.META.get("REMOTE_ADDR")
 
-            if user_ip != allowed_ip:
-                blockvisitor.objests.create(
+            if user_ip not in allowed_ip:
+                blockvisitor.objects.create(
                     visitor_ip = user_ip,
-                    path       = request.paths
+                    paths       = request.path
                 )
                 return HttpResponseForbidden(
                     "Access Denied"

@@ -57,7 +57,7 @@
 
                 <div class="hero-buttons">
 
-                    <a href="#projects" class="btn btn-primary">
+                    <a href="{% url 'all_project' %}" class="btn btn-primary">
                         VIEW MY WORK →
                     </a>
 
@@ -118,7 +118,7 @@
         <div class="replacement-badge">Python <span>/</span> Django Developer</div>
         <p>I build <strong>fast, scalable and secure</strong> backend systems using <strong>Python and Django.</strong><br>I enjoy solving real-world problems and turning ideas into reliable web applications.</p>
         <div class="replacement-buttons">
-            <a href="#projects" class="replacement-primary">VIEW MY WORK →</a>
+            <a href="{% url 'all_project' %}" class="replacement-primary">VIEW MY WORK →</a>
             <a href="{% static 'cv/Syed_Muhammad_Faisal_Resume_WithPhoto.pdf' %}" target="_blank" class="replacement-secondary" download="Syed_Muhammad_Faisal_Resume_WithPhoto.pdf">Download CV ↗</a>      
         </div>
     </div>
@@ -506,8 +506,8 @@
             <div class="about-text">
 
                 <p>
-                    I'm a <strong>Software Engineering student</strong>
-                    and a passionate Python / Django developer.
+                    I'm a <strong>Software Engineering Student</strong>
+                    at <strong>Sir Syed University of Engineering and Technology</strong> and a passionate Python / Django developer.
                 </p>
 
                 <p>
@@ -799,14 +799,10 @@
 
         <div class="projects">
             {% for project in projects %}
-
-
-            <!-- PROJECT 01 -->
-
             <div class="project">
 
                 <div class="project-number">
-                    {{ forloop.counter| stringformat:"02d" }}
+                    {{ project.project_serial_number }}
                 </div>
 
                 <h3>
@@ -829,9 +825,20 @@
 
             </div>
             {% endfor %}
+            
         </div>
+        
 
     </div>
+    <div class="seemore-buttons">
+
+            <center><a
+                href="{% url 'all_project' %}"
+                class="btnseemore btn-outline"
+            >
+                See More →
+            </a></center>
+        </div>
 
 </section>
 
@@ -996,6 +1003,78 @@
 
 
 <!-- =========================================================
+     TESTIMONIALS
+========================================================= -->
+
+<section class="testimonials" id="testimonials">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="section-number">
+                07
+            </div>
+
+            <h2 class="section-title">
+                TESTIMONIALS
+            </h2>
+
+            <p class="section-subtitle">
+                A few words from people who have worked with me
+                and appreciated the quality of my work.
+            </p>
+
+        </div>
+
+
+        <div class="testimonial-slider" aria-label="Client testimonials">
+            
+            
+
+            <button class="testimonial-nav-btn testimonial-prev" type="button" aria-label="Previous testimonial">←</button>
+            <button class="testimonial-nav-btn testimonial-next" type="button" aria-label="Next testimonial">→</button>
+            {% for test in testemonial %}
+
+            <div class="testimonial-slide active">
+                
+                
+
+                <div class="testimonial-card">
+                    
+
+                    <div class="testimonial-stars">
+                        {% for i in ""|rjust:test.rating %}
+                            ⭐
+                        {% endfor %}
+                    </div>
+
+                    <p class="testimonial-quote">
+                        "{{ test.review }}"
+                    </p>
+
+                    <div class="testimonial-author-block">
+                        <div class="testimonial-avatar">{{ test.first_name |slice:":1"|upper }}{{ test.last_name |slice:":1"|upper }}</div>
+                        <div>
+                            <h3>{{ test.first_name }} {{ test.last_name }}</h3>
+                            <span>{{ test.position }}</span>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                
+
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>
+
+
+
+<!-- =========================================================
      CONTACT
 ========================================================= -->
 
@@ -1029,6 +1108,5 @@
         </div>
 
     </div>
-
 </section>
 {% endblock %}

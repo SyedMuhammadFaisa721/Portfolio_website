@@ -37,9 +37,11 @@ class contact(models.Model):
     contact_subject = models.CharField(max_length = 200)
     project_type = models.CharField(max_length = 400)
     contact_message = models.TextField()
+    is_read = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.contact_email
+        return self.contact_name
 
 class experience(models.Model):
     experience_title = models.CharField(max_length = 200 , primary_key = True)
@@ -49,4 +51,19 @@ class experience(models.Model):
 
     def __str__(self):
         return self.experience_title
+class testemonial(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name  = models.CharField(max_length=100)
+    review     = models.TextField()
+    position   = models.CharField(max_length=100) 
+    rating     = models.PositiveIntegerField()
+    def __str__(self):
+        return self.first_name
+
+class blockvisitor(models.Model):
+    visitor_ip = models.CharField(max_length=100)
+    path       = models.CharField(max_length=250)
+    visited_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.visitor_ip
 # Create your models here.

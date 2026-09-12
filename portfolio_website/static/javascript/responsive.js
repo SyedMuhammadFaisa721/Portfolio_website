@@ -49,3 +49,59 @@ const menuBtn = document.getElementById("menuBtn");
         });
 
     });
+
+
+    /* Testimonial Auto Slide */
+
+    const testimonialSlides = document.querySelectorAll(".testimonial-slide");
+    const testimonialSlider = document.querySelector(".testimonial-slider");
+    const testimonialPrev = document.querySelector(".testimonial-prev");
+    const testimonialNext = document.querySelector(".testimonial-next");
+
+    if (testimonialSlides.length > 0) {
+
+        let testimonialIndex = 0;
+        let testimonialInterval;
+
+        function showTestimonial(index) {
+
+            testimonialSlides.forEach((slide, i) => {
+                slide.classList.toggle("active", i === index);
+            });
+        }
+
+        function startTestimonialInterval() {
+            clearInterval(testimonialInterval);
+            testimonialInterval = setInterval(function () {
+                testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
+                showTestimonial(testimonialIndex);
+            }, 4000);
+        }
+        if (testimonialPrev) {
+            testimonialPrev.addEventListener("click", function () {
+                testimonialIndex = (testimonialIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
+                showTestimonial(testimonialIndex);
+                startTestimonialInterval();
+            });
+        }
+
+        if (testimonialNext) {
+            testimonialNext.addEventListener("click", function () {
+                testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
+                showTestimonial(testimonialIndex);
+                startTestimonialInterval();
+            });
+        }
+
+        if (testimonialSlider) {
+            testimonialSlider.addEventListener("mouseenter", function () {
+                clearInterval(testimonialInterval);
+            });
+
+            testimonialSlider.addEventListener("mouseleave", function () {
+                startTestimonialInterval();
+            });
+        }
+
+        startTestimonialInterval();
+    }

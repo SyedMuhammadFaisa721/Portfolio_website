@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Dashboard | Syed Muhammad Faisal{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="dashboard-page">
+    <div class="container dashboard-shell">
+        <div class="dashboard-header">
+            <div>
+                <p class="dashboard-kicker">Admin Panel</p>
+                <h1>Contact Dashboard</h1>
+            </div>
+            <a href="{% url 'contact' %}" class="primary-btn" target="_blank" rel="noopener noreferrer">View Contact Form</a>
+        </div>
+
+        {% if messages %}
+            <div class="dashboard-messages">
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <span class="stat-label">Total Messages</span>
+                <strong>{{ total_count }}</strong>
+            </div>
+            <div class="stat-card accent-card">
+                <span class="stat-label">Unread</span>
+                <strong>{{ unread_count }}</strong>
+            </div>
+            <div class="stat-card success-card">
+                <span class="stat-label">Read</span>
+                <strong>{{ read_count }}</strong>
+            </div>
+        </div>
+
+        <div class="dashboard-list">
+            {% if contacts %}
+                {% for message in contacts %}
+                    <article class="message-card {% if not message.is_read %}unread{% endif %}">
+                        <div class="message-top">
+                            <div>
+                                <p class="message-name">{{ message.contact_name }}</p>
+                                <p class="message-meta">{{ message.contact_email }} · {{ message.project_type }}</p>
+                            </div>
+                            <div class="message-actions">
+                                <span class="status-badge {% if message.is_read %}read{% else %}unread{% endif %}">
+                                    {% if message.is_read %}Read{% else %}Unread{% endif %}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="message-info">
+                            <div>
+                                <span class="info-label">Subject</span>
+                                <p>{{ message.contact_subject }}</p>
+                            </div>
+                            <div>
+                                <span class="info-label">Project Type</span>
+                                <p>{{ message.project_type }}</p>
+                            </div>
+                            <div>
+                                <span class="info-label">Received</span>
+                                <p>{{ message.created_at|date:"d M Y, H:i" }}</p>
+                            </div>
+                        </div>
+
+                        <div class="message-body">{{ message.contact_message }}</div>
+
+                        <div class="message-footer">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="action" value="toggle_read">
+                                <input type="hidden" name="contact_id" value="{{ message.id }}">
+                                <button type="submit" class="secondary-btn">
+                                    {% if message.is_read %}Mark as unread{% else %}Mark as read{% endif %}
+                                </button>
+                            </form>
+
+                            <form method="post" onsubmit="return confirm('Are you sure you want to delete this message?');">
+                                {% csrf_token %}
+                                <input type="hidden" name="action" value="delete">
+                                <input type="hidden" name="contact_id" value="{{ message.id }}">
+                                <button type="submit" class="danger-btn">Delete</button>
+                            </form>
+                        </div>
+                    </article>
+                {% endfor %}
+            {% else %}
+                <div class="empty-state">
+                    <h3>No messages yet</h3>
+                    <p>Contact form submissions will appear here once visitors send a message.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

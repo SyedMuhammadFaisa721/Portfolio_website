@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+
+
+<section id="projects">
+
+    <div class="container">
+
+        <div class="section-header" style="margin-top: 6%;">
+            <center><h2 class="section-title" >
+                ALL FEATURED PROJECTS
+            </h2>
+
+            <p class="section-subtitle" style="margin-bottom: 5%;">
+                A selection of projects demonstrating my backend
+                and software engineering skills.
+            </p></center>
+
+        </div>
+
+
+        <div class="projects">
+            {% for pro in page_obj %}
+            <div class="project">
+
+                <div class="project-number">
+                    {{ forloop.counter| stringformat:"02d" }}
+                </div>
+
+                <h3>
+                    {{ pro.project_name }}
+                </h3>
+
+                <div class="project-stack">
+                    {{ pro.project_language }}
+                </div>
+
+                <p>
+                    {{ pro.project_description }}
+                </p>
+                
+
+                <a href="{% url 'projectdetails' pro.project_serial_number %}" class="project-link">
+                    VIEW PROJECT →
+                </a>
+                
+
+            </div>
+            {% endfor %}
+        </div>
+        <div>
+            <div class="projects-pagination">
+                <div class="projects-pagination-left">
+                    {% if page_obj.has_previous %}
+                    <a class="projects-page-btn projects-prev" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page">
+                        ← Prev
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="projects-pagination-right">
+                    {% if page_obj.has_next %}
+                    <a class="projects-page-btn projects-next" href="?page={{ page_obj.next_page_number }}" aria-label="Next page">
+                        Next →
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+                {% if page_obj.paginator.num_pages > 1 %}
+                    <center><span class="projects-page-indicator">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                    </span></center>
+                {% endif %}
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

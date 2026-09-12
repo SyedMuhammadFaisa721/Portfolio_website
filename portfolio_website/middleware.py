@@ -5,7 +5,7 @@ class Ipaddressblocker:
     def __init__(self , get_response):
         self.get_response = get_response
     def __call__(self, request):
-        allowed_ip= ["192.168.100.68"]
+        allowed_ip= ["10.0.4.129"]
         paths      = ["/admin-login/" , "/admin/" , "/dashboard/"]
 
         if request.path in paths:

@@ -20,6 +20,13 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from portfolio_website.views import home_view , contact_view , log_in , all_project , ProjectDetailView, dashboard_view, tester
+from django.contrib.sitemaps.views import sitemap
+from portfolio_website.sitemaps import StaticViewSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+}
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     
@@ -29,7 +36,13 @@ urlpatterns = [
     path('contact/', contact_view, name='contact'),
     path('tester/', tester, name='tester'),
     path('', home_view, name='home'),
-    path('project_details/<int:pk>', ProjectDetailView.as_view() , name='projectdetails')
+    path('project_details/<int:pk>', ProjectDetailView.as_view() , name='projectdetails'),
+    path(
+        'sitemap.xml',
+        sitemap,
+        {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap'
+    ),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)

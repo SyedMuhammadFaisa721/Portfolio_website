@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 from portfolio_website.views import home_view , contact_view , log_in , all_project , ProjectDetailView, dashboard_view, tester
 from django.contrib.sitemaps.views import sitemap
 from portfolio_website.sitemaps import StaticViewSitemap
-
+from django.views.generic import TemplateView
 sitemaps = {
     'static': StaticViewSitemap,
 }
@@ -42,6 +42,13 @@ urlpatterns = [
         sitemap,
         {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'
+    ),
+    path(
+        "robots.txt",
+        TemplateView.as_view(
+            template_name="robots.txt",
+            content_type="text/plain"
+        ),
     ),
 ]
 if settings.DEBUG:
